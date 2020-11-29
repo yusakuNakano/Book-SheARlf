@@ -1,0 +1,26 @@
+<div class="main users-index">
+  <div class="container">
+    <h1 class="users-heading">ユーザー一覧</h1>
+
+    <div class="sort">
+    <th><%= sort_link(@q, :name, "名前") %></th>
+    <th><%= sort_link(@q, :created_at, "登録時期") %></th>
+    </div>
+    <!-- 以下の<% %>を使ってeach文を追加してください -->
+    <% @circle_registers.each do |circle_registers| %>
+      <% user = User.find_by(id: circle_registers.user_id) %>
+      <div class="users-index-item">
+        <div class="user-left">
+          <img src="<%= "/user_images/#{user.image_name}" %>">
+        </div>
+        <div class="user-right">
+          <!-- 以下の<%= %>を使ってユーザー名を表示してください -->
+          <%= link_to(user.name, "/users/#{@circle.id}/#{user.id}") %>
+         
+        </div>
+      </div>
+      
+    <!-- 以下の<% %>を使ってeach文のendを追加してください -->
+    <% end %>
+  </div>
+</div>

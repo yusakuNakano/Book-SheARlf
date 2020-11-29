@@ -1,0 +1,36 @@
+<div class="main book-index">
+  <div class="container">
+    <h1 class="book-heading">蔵書一覧</h1>
+    <div class="sort">
+    <th><%= sort_link(@q, :name, "名前") %></th>
+    <th><%= sort_link(@q, :created_at, "登録日") %></th>
+    </div>
+    <!-- 以下の<% %>を使ってeach文を追加してください -->
+    
+    <% @book.each do |book| %>
+      <%if @current_circle.id == book.circle_id%>
+      <div class="book-index-item">
+        <div class="book-left">
+          <img src="<%= "/book_images/#{book.image_name}" %>">
+        </div>
+          <div class="book-right">
+            <!-- 以下の<%= %>を使ってユーザー名を表示してください -->
+            <%= link_to(book.name, "/books/#{@current_circle.id}/#{book.id}") %>
+            <p></p>
+              <div class = "book-lend">
+                <%if book.lend == 1 && book.lend_user_id == @current_user.id%>
+                <%= link_to("返却", "/books/#{@current_circle.id}/#{book.id}/return_book",{method: "post"}) %>
+                <% elsif book.lend == 1 && book.lend_user_id != @current_user.id%>  
+                  <p>×</p>
+                  <p><%=book.return_date%>に返却されます</p>
+                <%else%>
+                  <%=link_to("◯","/books/#{@current_circle.id}/#{book.id}/lend")%>
+                <%end%>
+              </div>
+          </div>
+      </div>
+      <%end%>
+    <!-- 以下の<% %>を使ってeach文のendを追加してください -->
+    <% end %>
+  </div>
+</div>

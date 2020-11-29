@@ -1,0 +1,17 @@
+<div class="main books-new">
+  <div class="container">
+    <div class="form-heading"><%=@book.name%> 貸出</div>
+    <div class="form books-form">
+      <div class="form-body">
+        <%= form_tag("/books/#{@current_circle.id}/#{@book.id}/lending") do %>
+            <p>貸出日</p>
+                <%now = Date.today%>
+                <%= now %>
+            <p>返却予定日</p>
+                <input type="date" name="date">
+                <input type="submit" value="貸出">
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

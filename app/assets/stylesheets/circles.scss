@@ -1,0 +1,125 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/* users/index ================================ */
+.circles-heading {
+    font-weight: 300;
+    margin: 60px 0 20px;
+    font-size: 48px;
+    color: #bcc8d4;
+  }
+  
+  .circles-index-item {
+    padding: 20px 30px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #c1ced7;
+    display: table;
+    width: 100%;
+  }
+  
+  .circles-left img {
+    width: 50px;
+    height: 50px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px #c1ced7;
+    object-fit: cover;
+  }
+  
+  .circles-name a {
+    font-weight: 600;
+  }
+  
+  .circles-name a:hover {
+    color: #3ecdc6;
+  }
+  
+  .circles-left {
+    float: left;
+    width: 10%;
+  }
+  
+  .circles-right {
+    width: 90%;
+    padding-left: 25px;
+    text-align: left;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .book-lend{
+    
+    text-align: right;
+    vertical-align: middle;
+  }
+  /* users/show ================================ */
+  .circles-show {
+    text-align: center;
+  }
+  
+  .circles {
+    margin-bottom: 20px;
+  }
+  
+  .circles img {
+    width: 80px;
+    height: 80px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px #c1ced7;
+    margin: 20px 0 10px;
+    object-fit: cover;
+  }
+  
+  .circles h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  .circles p {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+  
+  .circles a {
+    color: #8899a6;
+    text-decoration: underline;
+    font-weight: 200;
+  }
+  
+  .circles span {
+    color: #afb6bf;
+    font-weight: 200;
+    padding: 0 6px 0 8px;
+  }
+  
+  .circles-tabs {
+    margin-top: 40px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #c1ced7;
+  }
+  
+  .circles-tabs li {
+    float: left;
+  }
+  
+  .circles-tabs li.active {
+    border-bottom: 2px solid #3ecdc6;
+  }
+  
+  .circles-tabs li.active a {
+    color: #57575f;
+  }
+  
+  .circles-tabs a {
+    display: inline-block;
+    padding: 16px 30px;
+    color: #afb6bf;
+  }
+  
+  /* users/new, users/edit ================================ */
+  .circles-form input {
+    margin-bottom: 15px;
+  }
+  

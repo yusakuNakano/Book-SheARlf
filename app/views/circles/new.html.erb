@@ -1,0 +1,19 @@
+<div class="main circles-new">
+  <div class="container">
+    <div class="form-heading">蔵書登録</div>
+    <div class="form circles-form">
+      <div class="form-body">
+      <% @circle.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+      <% end %>
+        <%= form_tag("/circles/create") do %>
+            <p>Circleの名前</p>
+            <input name="name">
+            <input type="submit" value="新規登録">
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

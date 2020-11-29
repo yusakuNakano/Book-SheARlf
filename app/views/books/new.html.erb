@@ -1,0 +1,14 @@
+<div class="main users-new">
+  <div class="container">
+    <div class="form-heading">蔵書登録</div>
+    <div class="form users-form">
+      <div class="form-body">
+        <%= form_tag("/books/#{@current_circle.id}/create") do %>
+            <p>本の名前</p>
+            <input name="name">
+            <input type="submit" value="新規登録">
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

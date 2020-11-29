@@ -1,0 +1,17 @@
+<div class="main circles-edit">
+  <div class="container">
+    <div class="form-heading">蔵書の編集</div>
+    <div class="form circles-form">
+      <div class="form-body">
+        <%= form_tag("/circles/#{@circle.id}/update",{multipart: true}) do %>
+            <p>サークルの名前</p>
+            <!-- nameを初期値として表示してください -->
+            <input name="name" value="<%= @circle.name %>">
+            <p>画像</p>
+            <input name="image" type="file">
+            <input type="submit" value="保存">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

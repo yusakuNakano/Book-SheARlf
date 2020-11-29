@@ -1,0 +1,25 @@
+
+<div class="circle_left">
+  <div class=" main circles-index">
+    <div class="container">
+      <h1 class="circles-heading">所属Circle一覧</h1>
+      
+      <!-- 以下の<% %>を使ってeach文を追加してください -->
+      <% @circle_register.each do |circle_register|  %>
+          <% @circle = Circle.find_by(id: circle_register.circle_id) %>
+            <div class="circles-index-item">
+              <div class="circles-left">
+                <img src="<%= "/circle_images/#{@circle.image_name}" %>">
+              </div>
+              <div class="circles-right">
+                <!-- 以下の<%= %>を使ってユーザー名を表示してください -->
+                <%= link_to(@circle.name, "/circles/#{@circle.id}/change_circle",{method: "post"}) %>
+              </div>
+            </div>
+            
+        <!-- 以下の<% %>を使ってeach文のendを追加してください -->
+            
+        <% end %>
+    </div>
+  </div>
+</div>

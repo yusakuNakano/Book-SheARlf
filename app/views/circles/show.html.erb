@@ -1,0 +1,20 @@
+<div class="main circles-show">
+  <div class="container">
+    <div class="circles">
+      <!-- 以下で、ユーザー名を出力してください -->
+      <h2><%= @circle.name %></h2>
+      <img src="<%= "/circle_images/#{@circle.image_name}" %>">
+      <div class = "book-lend-show">
+      </div>
+
+      <%= CircleRegister.find_by(circle_id: params[:circle_id], user_id: @current_user.id) == nil%>
+      <%if CircleRegister.find_by(circle_id: params[:circle_id], user_id: @current_user.id) != nil%>
+        <p>登録</p>
+      <%else%>
+        <%= link_to("登録", "/circles/#{@circle.id}/join_circle", {method: "post"})%>
+      <%end%>
+      <%= link_to("編集", "/circles/#{@circle.id}/edit") %>
+      <%= link_to("削除", "/circles/#{@circle.id}/remove_circle",{method: "post"}) %>
+    </div>
+  </div>
+</div>

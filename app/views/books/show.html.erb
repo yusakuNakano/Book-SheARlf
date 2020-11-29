@@ -1,0 +1,22 @@
+<div class="main book-show">
+  <div class="container">
+    <div class="book">
+      <!-- 以下で、ユーザー名を出力してください -->
+      <h2><%= @book.name %></h2>
+      <img src="<%= "/book_images/#{@book.image_name}" %>">
+      <!-- 以下で、メールアドレスを出力してください -->
+      <div class = "book-lend-show">
+        <%if @book.lend == 1 && @book.lend_user_id == @current_user.id%>
+          <%= link_to("返却", "/books/#{@current_circle.id}/#{@book.id}/return_book",{method: "post"}) %>
+        <% elsif @book.lend == 1 && @book.lend_user_id != @current_user.id%>  
+          <p>×</p>
+          <p><%=@book.return_date%>に返却されます</p>
+        <%else%>
+          <%=link_to("貸出可","/books/#{@current_circle.id}/#{@book.id}/lend")%>
+        <%end%>
+    </div>
+      <%= link_to("編集", "/books/#{@current_circle.id}/#{@book.id}/edit") %>
+      <%= link_to("削除", "/books/#{@current_circle.id}/#{@book.id}/remove_book",{method: "post"}) %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="main user-show">
+  <div class="container">
+    <div class="user">
+      <!-- 以下で、ユーザー名を出力してください -->
+     
+      <h2><%= @user.name %></h2>
+      <!-- 以下で、メールアドレスを出力してください -->
+      <p><%= @user.email %></p>
+      <% if @user.id == @current_user.id %>
+        <%= link_to("編集", "/users/#{@circle.id}/#{@user.id}/edit") %>
+      <% end %>
+    </div>
+    <%= link_to("削除", "/users/#{@user.id}/remove_user",{method: "post"}) %>
+    <ul class="user-tabs">
+      <li class="active"><%= link_to("投稿", "/users/#{@user.id}") %></li>
+      <li><%= link_to("いいね!", "/users/#{@circle.id}/#{@user.id}/likes") %></li>
+    </ul>
+
+    <% @user.posts.each do |post| %>
+      <!-- 指定されたコードを貼り付けてください -->
+      <div class="posts-index-item">
+        <div class="post-left">
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(post.user_rb.name, "/users/#{@circle.id}/#{post.user_rb.id}") %>
+          </div>
+          <%= link_to(post.content, "/posts/#{@circle.id}/#{post.id}") %>
+        </div>
+      </div>
+      
+    <!-- 以下の<% %>を使ってeach文のendを追加してください -->
+    <% end%>
+
+  </div>
+</div>

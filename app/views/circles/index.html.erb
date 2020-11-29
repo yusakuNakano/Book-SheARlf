@@ -1,0 +1,37 @@
+<div class="main circles-index">
+  <div class="container">
+    <h1 class="circles-heading">サークル一覧</h1>
+
+    <div class="sort">
+    <th><%= sort_link(@q, :name, "名前") %></th>
+    <th><%= sort_link(@q, :created_at, "登録時期") %></th>
+    </div>
+    <%=@current_user.id%>
+    <%=@current_circle.id%>
+    <!-- 以下の<% %>を使ってeach文を追加してください -->
+    <% @circle.each do |circle| %>
+      
+        <% if circle.my_circle ==  false  %>
+        <% @circle_regist = CircleRegister.find_by(circle_id: circle.id) %>
+          <div class="circles-index-item">
+            <div class="circles-left">
+              <img src="<%= "/circle_images/#{circle.image_name}" %>">
+            </div>
+            <div class="circles-right">
+              <!-- 以下の<%= %>を使ってユーザー名を表示してください -->
+              <%= link_to(circle.name, "/circles/#{circle.id}") %>
+          </div>
+          <div class = "circle-change">
+            
+
+                <%= link_to("登録", "/circles/#{circle.id}/join_circle", {method: "post"})%>
+                
+              
+                </div>
+              </div>
+            
+      <!-- 以下の<% %>を使ってeach文のendを追加してください -->
+      <% end %>
+    <% end %>
+  </div>
+</div>
