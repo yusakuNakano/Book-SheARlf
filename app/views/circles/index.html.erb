@@ -6,8 +6,7 @@
     <th><%= sort_link(@q, :name, "名前") %></th>
     <th><%= sort_link(@q, :created_at, "登録時期") %></th>
     </div>
-    <%=@current_user.id%>
-    <%=@current_circle.id%>
+
     <!-- 以下の<% %>を使ってeach文を追加してください -->
     <% @circle.each do |circle| %>
       
