@@ -63,7 +63,7 @@ class CirclesController < ApplicationController
 
   def change_circle
       session[:circle_id] = params[:circle_id]
-      redirect_to("/circles/#{@current_circle.id}//join_index")
+      redirect_to("/circles/#{params[:circle_id]}/#{@current_user.id}/join_index")
   end
 
   def join_circle

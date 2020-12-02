@@ -24,7 +24,7 @@
       <ul class="header-menus">
         <% if @current_user && @current_circle%>
           <li>
-            <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
+            <%= link_to(@current_user.name, "/users/#{@current_circle.id}/#{@current_user.id}") %>
           </li>
           <li>
             <%= link_to("所属Circle","/circles/#{@current_circle.id}/#{@current_user.id}/join_index") %>

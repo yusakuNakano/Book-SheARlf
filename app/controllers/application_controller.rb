@@ -22,10 +22,15 @@ class ApplicationController < ActionController::Base
   end
   
   def forbid_login_user
-    if @current_user
-      flash[:notice] = "すでにログインしています"
-      redirect_to("/posts/index")
+    if @current_user && @current_circle
+      session[:user_id] = nil
+      session[:circle_id]
+      flash[:notice] = "ログアウトしました"
+      redirect_to("/login")
+      
     end
+
+  
   end
 
   

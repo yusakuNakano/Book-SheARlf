@@ -12,8 +12,15 @@
                 <img src="<%= "/circle_images/#{@circle.image_name}" %>">
               </div>
               <div class="circles-right">
+              <%= link_to(@circle.name, "/circles/#{@circle.id}") %>
                 <!-- 以下の<%= %>を使ってユーザー名を表示してください -->
-                <%= link_to(@circle.name, "/circles/#{@circle.id}/change_circle",{method: "post"}) %>
+                <%if @current_circle.id == @circle.id%>
+                  <p>所属中</p>
+                <%else%>
+                <p>
+                  <%= link_to("切り替える", "/circles/#{@circle.id}/change_circle",{method: "post"}) %>
+                </p>
+                <%end%>
               </div>
             </div>
             

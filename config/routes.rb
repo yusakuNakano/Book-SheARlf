@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   post 'circles/:circle_id/change_circle' => "circles#change_circle"
   get 'circles/:circle_id/:id/join_index' => "circles#join_index"
   get 'circles/:circle_id/index' =>  "circles#index"
+  
   get 'circles/new' => "circles#new"
   get 'circles/:id' => "circles#show"
+  post 'circles/:id/update' => "circles#update"
   get 'circles/:id/edit' => "circles#edit"
   post 'circles/create' => "circles#create"
   post "circles/:id/remove_circle" => "circles#remove_circle"
