@@ -24,7 +24,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(
       content: params[:content],
-      user_id: @current_user.id
+      user_id: @current_user.id,
+      circle_id: @current_circle.id
     )
     @circle = Circle.find_by(id: params[:circle_id])
     if @post.save
@@ -58,14 +59,14 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.destroy
     flash[:notice] ="削除しました"
-    redirect_to("/posts/index")
+    redirect_to("/posts/#{params[:circle_id]}/index")
   end
 
   def ensure_correct_user
     @post = Post.find_by(id: params[:id])
     if @post.user_id != @current_user.id
       flash[:notice] = "権限がありません" 
-      redirect_to("/posts/index")
+      redirect_to("/posts/#{params[:circle_id]}/index")
     end
   end
 

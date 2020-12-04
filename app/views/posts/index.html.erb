@@ -2,20 +2,21 @@
   <div class="container">
 
     <% if Post.all.order(created_at: :desc) != nil%>
-      <% @circle_registers.each do |circle_registers| %>
-        <% post = Post.find_by(user_id: circle_registers.user_id) %>
+      <% @posts.each do |post| %>
         <% if post != nil%>
-        <div class="posts-index-item">
-            <div class="post-left">
-            <img src="<%= "/user_images/#{post.user_rb.image_name}" %>">
-            </div>
-            <div class="post-right">
-              <div class="post-user-name">
-                <%= link_to(post.user_rb.name, "/users/#{@circle.id}/#{post.user_rb.id}") %>
+          <% if @current_circle.id == post.circle_id%>
+          <div class="posts-index-item">
+              <div class="post-left">
+              <img src="<%= "/user_images/#{post.user_rb.image_name}" %>">
               </div>
-              <%= link_to(post.content, "/posts/#{@circle.id}/#{post.id}") %>
+              <div class="post-right">
+                <div class="post-user-name">
+                  <%= link_to(post.user_rb.name, "/users/#{@circle.id}/#{post.user_rb.id}") %>
+                </div>
+                <%= link_to(post.content, "/posts/#{@circle.id}/#{post.id}") %>
+              </div>
             </div>
-          </div>
+            <%end%>
           <%end%>
       <% end %>
     <%end%>
